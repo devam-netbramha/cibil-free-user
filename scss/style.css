@@ -12783,7 +12783,7 @@ input[type=number] {
 }
 
 .modal .modal-dialog {
-  max-width: 620px;
+  max-width: 368px;
   width: calc(100% - 40px);
 }
 .modal .modal-dialog .modal-content {
@@ -13862,8 +13862,6 @@ input[type=number] {
 .upgradePlanPopup .modal-dialog .modal-content .modal-body span {
   font-family: "Intro";
   font-weight: 400;
-  font-size: 14px;
-  line-height: 24px;
   letter-spacing: 0.02em;
   color: #2C2C2C;
   margin-top: 10px;
@@ -13908,6 +13906,9 @@ input[type=number] {
   font-size: 16px;
   border-top: 1px solid #DDDDDD;
   border-bottom: 1px solid #ACACAC;
+}
+.upgradePlanPopup .modal-dialog .modal-content .modal-body .total .grand-total.no-border {
+  border-top: none;
 }
 .upgradePlanPopup .modal-dialog .modal-content .modal-body .total .promo-code {
   margin-top: 30px;
@@ -13958,11 +13959,16 @@ input[type=number] {
 }
 .upgradePlanPopup .modal-dialog .modal-content .modal-body .plan-price {
   font-weight: 600;
-  font-size: 24px;
+  font-size: 20px;
   line-height: 30px;
 }
 .upgradePlanPopup .modal-dialog .modal-content .modal-body .coupon-discount {
   color: #3bb012;
+}
+.upgradePlanPopup .modal-dialog .modal-content .modal-body .note {
+  font-size: 14px;
+  line-height: 24px;
+  margin: 24px 0;
 }
 .upgradePlanPopup.fixedBody .modal-body {
   height: calc(100vh - 80px);

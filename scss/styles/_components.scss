@@ -1369,7 +1369,7 @@
 // modal
 .modal {
     .modal-dialog {
-        max-width: 620px;
+        max-width: 368px;
         width: calc(100% - 40px);
 
         .modal-content {
@@ -2723,8 +2723,8 @@
                 span {
                     font-family: 'Intro';
                     font-weight: 400;
-                    font-size: 14px;
-                    line-height: 24px;
+                    // font-size: 14px;
+                    // line-height: 24px;
                     letter-spacing: 0.02em;
                     color: #2C2C2C;
                     margin-top: 10px;
@@ -2785,6 +2785,10 @@
                         font-size: 16px;
                         border-top: 1px solid #DDDDDD;
                         border-bottom: 1px solid #ACACAC;
+
+                        &.no-border {
+                            border-top: none;
+                        }
                     }
 
                     .promo-code {
@@ -2849,7 +2853,7 @@
 
                 .plan-price {
                     font-weight: 600;
-                    font-size: 24px;
+                    font-size: 20px;
                     line-height: 30px;
                 }
 
@@ -2863,6 +2867,11 @@
                 //   margin-top: auto;
                 //   padding: 20px;
                 // }
+                .note {
+                    font-size: 14px;
+                    line-height: 24px;
+                    margin: 24px 0;
+                }
             }
         }
     }
