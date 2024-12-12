@@ -344,7 +344,7 @@
                                                 <p class="message"></p>
                                             </div>
                                             <div class="form-group">
-                                                <label for="old_password">Old Password</label>
+                                                <label for="old_password">Current Password</label>
                                                 <div class="show-password"><img src="../../images/static-images/show-password.svg"></div>
                                                 <div class="hide-password"><img src="../../images/static-images/hide-password.svg"></div>
                                                 <input type="password" name="old_password" id="old_password" required>
@@ -356,6 +356,9 @@
                                                 <div class="hide-password"><img src="../../images/static-images/hide-password.svg"></div>
                                                 <input type="password" name="new_password" id="new_password" required>
                                                 <p class="message">Please enter your new password</p>
+
+                                                <!-- add class show to display validation -->
+                                                <p class="validation">Please ensure your password meets all the requirements listed below.</p>
                                             </div>
                                             <div class="form-group">
                                                 <label for="confirm_password">Confirm New Password</label>
@@ -363,6 +366,21 @@
                                                 <div class="hide-password"><img src="../../images/static-images/hide-password.svg"></div>
                                                 <input type="password" name="confirm_password" id="confirm_password" required>
                                                 <p class="message">Please re-enter your new password</p>
+
+                                                <!-- add class show to display validation -->
+                                                <p class="validation">Passwords do not match. Please re-enter your password to confirm.</p>
+                                            </div>
+                                            <div class="password__check-container">
+                                                <p class="password__check-label">Password must:</p>
+                                                <ul class="password__check">
+                                                    <li id="validLength">Length (min-max): 12-64</li>
+                                                    <li id="validUppercase">1 Uppercase characters [A-Z]</li>
+                                                    <li id="validLowercase">1 Lowercase characters [a-z]</li>
+                                                    <li id="validNumber">1 Numbers [0-9]</li>
+                                                    <li id="validSpecial">Special characters</li>
+                                                    <li id="validSpaces">No spaces</li>
+                                                    <li id="validUsername">Username cannot be same as password</li>
+                                                </ul>
                                             </div>
                                             <div class="form-messages">
                                                 <div class="message-box success">
@@ -524,6 +542,54 @@
                             player.muted(true);
                         });
                     }
+                </script>
+
+                <script>
+                    const passwordInput = document.querySelector('#new_password');
+                    const validLength = document.querySelector('#validLength');
+                    const validUppercase = document.querySelector('#validUppercase');
+                    const validLowercase = document.querySelector('#validLowercase');
+                    const validNumber = document.querySelector('#validNumber');
+                    const validSpecial = document.querySelector('#validSpecial');
+                    const validSpaces = document.querySelector('#validSpaces');
+                    const validUsername = document.querySelector('#validUsername');
+
+                    const validationCriteria = {
+                        validLength: false,
+                        validUppercase: false,
+                        validLowercase: false,
+                        validSpecial: false,
+                        validSpaces: false,
+                        validNumber: false,
+                    };
+
+                    const validatePassword = (password) => {
+                        validationCriteria.validLength = password.length >= 12;
+                        validationCriteria.validUppercase = /[A-Z]/.test(password);
+                        validationCriteria.validLowercase = /[a-z]/.test(password);
+                        validationCriteria.validSpecial = /[!@#$%^&*(),.?":{}|<>]/.test(password);
+                        validationCriteria.validSpaces = !/\s/.test(password);
+                        validationCriteria.validNumber = /\d/.test(password);
+
+
+                        updateUI();
+                    };
+
+                    var messages = document.querySelector('.password__check');
+
+                    const updateUI = () => {
+                        validLength.classList = validationCriteria.validLength ? "valid" : "invalid";
+                        validUppercase.classList = validationCriteria.validUppercase ? "valid" : "invalid";
+                        validLowercase.classList = validationCriteria.validLowercase ? "valid" : "invalid";
+                        validSpecial.classList = validationCriteria.validSpecial ? "valid" : "invalid";
+                        validSpaces.classList = validationCriteria.validSpaces ? "valid" : "invalid";
+                        validNumber.classList = validationCriteria.validNumber ? "valid" : "invalid";
+                    };
+
+                    passwordInput.addEventListener("input", (e) => {
+                        validatePassword(e.target.value);
+                        console.log(passwordInput.value)
+                    });
                 </script>
             </div>
             <div class="overlay"></div>

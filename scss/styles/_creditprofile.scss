@@ -117,6 +117,35 @@
 
         .pass-word-frm-group {
             position: relative;
+
+            &.invalid {
+                .validation {
+                    display: block;
+                }
+
+                input {
+                    color: #EB0000 !important;
+                }
+            }
+
+            &.valid {
+                .password__check {
+                    display: none;
+                }
+
+                &:after {
+                    position: absolute;
+                    content: '';
+                    width: 24px;
+                    height: 24px;
+                    right: 32px;
+                    bottom: 12px;
+                    background-image: url('../../images/static-images/valid-password-icon.svg');
+                    background-repeat: no-repeat;
+                    background-size: cover;
+                    background-position: center;
+                }
+            }
         }
 
         label {
@@ -192,6 +221,10 @@
                 position: absolute;
                 right: -96px;
                 z-index: 4;
+
+                @media(max-width: 768px) {
+                    right: 0;
+                }
             }
         }
 
@@ -247,6 +280,16 @@
                 color: #006685;
                 text-decoration: underline;
             }
+        }
+
+        .validation {
+            color: #EB0000;
+            font-family: $intro;
+            font-weight: 400;
+            font-size: 14px;
+            line-height: 20px;
+            margin-top: 6px;
+            display: none;
         }
 
         button {
@@ -338,9 +381,9 @@
 
             h5 {
                 margin-bottom: 0px;
-                font-family: 'Intro Bold';
+                font-family: $intro;
+                font-weight: $intro-bold;
                 font-style: normal;
-                font-weight: 700;
                 font-size: 16px;
                 line-height: 24px;
                 letter-spacing: 0.02em;
@@ -480,5 +523,62 @@
 
     .owl-theme .owl-dots .owl-dot span {
         background: #DDDDDD;
+    }
+}
+
+.password {
+    &__check {
+        margin: 0;
+        margin-top: 4px;
+        padding: 0;
+
+        &-label {
+            font-size: 14px;
+            line-height: 22px;
+            font-weight: 600;
+            color: #595959;
+            margin-bottom: 0;
+        }
+
+        li {
+            font-size: 14px;
+            line-height: 19px;
+            color: #595959;
+            letter-spacing: 0.28px;
+            margin-bottom: 0;
+            position: relative;
+            padding-left: calc(16px + 8px);
+            display: flex;
+            align-items: center;
+
+            &:not(:last-child) {
+                margin-bottom: 4px;
+            }
+
+            &::before {
+                left: 0;
+                position: absolute;
+                content: '';
+                width: 16px;
+                height: 16px;
+                background-image: url('../../images/static-images/normal-dot.svg');
+            }
+
+            &.valid {
+                color: #008A00;
+
+                &::before {
+                    background-image: url('../../images/static-images/valid-tick.svg');
+                }
+            }
+
+            &.invalid {
+                color: #EB0000;
+
+                &::before {
+                    background-image: url('../../images/static-images/invalid-tick.svg');
+                }
+            }
+        }
     }
 }

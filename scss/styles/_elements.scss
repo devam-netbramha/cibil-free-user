@@ -1059,6 +1059,24 @@ input[type="number"] {
 
 // cibil dashboard forms
 .dashboard-form {
+  .password__check-container {
+    margin-bottom: 30px;
+  }
+
+  .validation {
+    font-size: 14px;
+    line-height: 20px;
+    font-weight: 400;
+    color: #EB0000;
+    margin-bottom: 0;
+    margin-top: 6px;
+    display: none;
+
+    &.show {
+      display: block;
+    }
+  }
+
   .form-group {
     display: flex;
     flex-direction: column;

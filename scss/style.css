@@ -10878,6 +10878,21 @@ input[type=number] {
   align-items: center;
 }
 
+.dashboard-form .password__check-container {
+  margin-bottom: 30px;
+}
+.dashboard-form .validation {
+  font-size: 14px;
+  line-height: 20px;
+  font-weight: 400;
+  color: #EB0000;
+  margin-bottom: 0;
+  margin-top: 6px;
+  display: none;
+}
+.dashboard-form .validation.show {
+  display: block;
+}
 .dashboard-form .form-group {
   display: flex;
   flex-direction: column;
@@ -23592,6 +23607,27 @@ input[type=range]:focus::-ms-fill-upper {
 .credit-profile-section .create-your-account .pass-word-frm-group {
   position: relative;
 }
+.credit-profile-section .create-your-account .pass-word-frm-group.invalid .validation {
+  display: block;
+}
+.credit-profile-section .create-your-account .pass-word-frm-group.invalid input {
+  color: #EB0000 !important;
+}
+.credit-profile-section .create-your-account .pass-word-frm-group.valid .password__check {
+  display: none;
+}
+.credit-profile-section .create-your-account .pass-word-frm-group.valid:after {
+  position: absolute;
+  content: "";
+  width: 24px;
+  height: 24px;
+  right: 32px;
+  bottom: 12px;
+  background-image: url("../../images/static-images/valid-password-icon.svg");
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
+}
 .credit-profile-section .create-your-account label {
   font-family: "Intro";
   font-weight: 700;
@@ -23658,6 +23694,11 @@ input[type=range]:focus::-ms-fill-upper {
   right: -96px;
   z-index: 4;
 }
+@media (max-width: 768px) {
+  .credit-profile-section .create-your-account #info_icon .tooltiptext {
+    right: 0;
+  }
+}
 .credit-profile-section .create-your-account #info_icon:hover .tooltiptext {
   visibility: visible;
   width: 250px;
@@ -23703,6 +23744,15 @@ input[type=range]:focus::-ms-fill-upper {
 .credit-profile-section .create-your-account p a {
   color: #006685;
   text-decoration: underline;
+}
+.credit-profile-section .create-your-account .validation {
+  color: #EB0000;
+  font-family: "Intro";
+  font-weight: 400;
+  font-size: 14px;
+  line-height: 20px;
+  margin-top: 6px;
+  display: none;
 }
 .credit-profile-section .create-your-account button {
   margin-top: 30px;
@@ -23789,9 +23839,9 @@ input[type=range]:focus::-ms-fill-upper {
 }
 .credit-profile-section .standard-plan .yellow-header h5 {
   margin-bottom: 0px;
-  font-family: "Intro Bold";
-  font-style: normal;
+  font-family: "Intro";
   font-weight: 700;
+  font-style: normal;
   font-size: 16px;
   line-height: 24px;
   letter-spacing: 0.02em;
@@ -23911,6 +23961,53 @@ input[type=range]:focus::-ms-fill-upper {
 }
 .credit-profile-section .owl-theme .owl-dots .owl-dot span {
   background: #DDDDDD;
+}
+
+.password__check {
+  margin: 0;
+  margin-top: 4px;
+  padding: 0;
+}
+.password__check-label {
+  font-size: 14px;
+  line-height: 22px;
+  font-weight: 600;
+  color: #595959;
+  margin-bottom: 0;
+}
+.password__check li {
+  font-size: 14px;
+  line-height: 19px;
+  color: #595959;
+  letter-spacing: 0.28px;
+  margin-bottom: 0;
+  position: relative;
+  padding-left: 24px;
+  display: flex;
+  align-items: center;
+}
+.password__check li:not(:last-child) {
+  margin-bottom: 4px;
+}
+.password__check li::before {
+  left: 0;
+  position: absolute;
+  content: "";
+  width: 16px;
+  height: 16px;
+  background-image: url("../../images/static-images/normal-dot.svg");
+}
+.password__check li.valid {
+  color: #008A00;
+}
+.password__check li.valid::before {
+  background-image: url("../../images/static-images/valid-tick.svg");
+}
+.password__check li.invalid {
+  color: #EB0000;
+}
+.password__check li.invalid::before {
+  background-image: url("../../images/static-images/invalid-tick.svg");
 }
 
 .payment-card {
